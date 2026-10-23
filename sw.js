@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pwa-static-v17'; // Bump on every asset change so clients update
+const CACHE_NAME = 'pwa-static-v18'; // Bump on every asset change so clients update
 const ASSETS_TO_CACHE = [
   './',
   './normalize.css',
@@ -6,11 +6,7 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './lula.webp',
   './flavio.webp',
-  './favicon.ico',
-  './apple-touch-icon.png',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/icon-maskable-512.png'
+  './favicon.ico'
 ];
 
 // 1. Install Event: Cache essential app shell files

@@ -300,7 +300,9 @@
       // A hung request would keep busy set and block every later update
       const signal = AbortSignal.timeout ? AbortSignal.timeout(10000) : undefined;
 
-      return fetch(`${URI_POSTS_JSON}?v=${Date.now()}`, { signal })
+      // Same URL every time + 'no-cache': the browser revalidates with the ETag and,
+      // while posts.json hasn't changed, the server answers 304 with an empty body
+      return fetch(URI_POSTS_JSON, { signal, cache: 'no-cache' })
         .then(r => {
           if (!r.ok) throw r.status;
           return r.text();
