@@ -45,7 +45,8 @@
   ];
 
   // Same tones as .badge in style.css
-  const tones = { 1: '#15803D', 2: '#B91C1C', 3: '#C2410C' };
+  const tones = { 1: '#15803D', 2: '#B91C1C', 3: '#FACC15' };
+  const toneInk = { 1: '#FFFFFF', 2: '#FFFFFF', 3: '#1C1917' };
   const SANS = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
   const SERIF = 'Georgia, "Times New Roman", serif';
 
@@ -149,7 +150,7 @@
     ctx.fillStyle = tones[badge.dataset.c];
     ctx.fill();
     ctx.textBaseline = 'middle';
-    ctx.fillStyle = '#FFFFFF';
+    ctx.fillStyle = toneInk[badge.dataset.c];
     ctx.fillText(result, sealX + 45, cy + 2);
     ctx.fillStyle = t.ink;
 

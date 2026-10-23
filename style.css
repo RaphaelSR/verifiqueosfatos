@@ -525,3 +525,47 @@ main.loading:empty::after {
   cursor: pointer;
 }
 /* SHARE: fim */
+
+/* ===== Proposta de legibilidade (rascunho para a issue) ===== */
+
+/* Selo legível sem depender de cor: ícone leve (SVG por máscara, na cor do texto), decorativo */
+.badge::before {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+
+.badge[data-c="1"] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E"); }
+.badge[data-c="2"] { --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6.5 6.5l11 11M17.5 6.5l-11 11'/%3E%3C/svg%3E"); }
+
+/* Parcial em amarelo com texto escuro: longe do vermelho do Falso, inclusive pra daltônicos */
+.badge[data-c="3"] {
+  --tone: #FACC15;
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zm0 2.5a6.5 6.5 0 0 1 0 13z' fill-rule='evenodd'/%3E%3C/svg%3E");
+  color: #1C1917;
+}
+
+/* A verificação é o produto: bloco com fundo suave e texto um pouco maior */
+.card > p {
+  padding: 12px 14px;
+  background: var(--soft);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+/* Área de toque de pelo menos 44px nos links de fonte */
+.sources a {
+  padding: 10px 12px;
+}
+
+/* Borda do card visível no tema escuro */
+[data-theme="dark"] {
+  --line: #3A3A3A;
+}
